@@ -191,3 +191,53 @@ body {
     }
   }
 }
+
+.faq {
+  max-width: 50rem;
+  margin-top: calc(var(--default-padding) * 1.5);
+  border-top: 0.1rem solid var(--color-grayish-blue);
+  border-bottom: 0.1rem solid var(--color-grayish-blue);
+
+  &__row {
+    position: relative;
+    padding: var(--default-padding) 0;
+
+    &:not(:last-of-type) {
+      border-bottom: 0.1rem solid var(--color-grayish-blue);
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 1.2rem;
+    max-width: 100%;
+    right: 0;
+    top: calc(var(--default-padding) + 0.6rem);
+    transition: var(--transition-timing) ease-in-out;
+  }
+  &__input {
+    display: none;
+    &:checked ~ .faq__arrow {
+      transform: rotate(180deg);
+    }
+    &:checked ~ .faq__answer {
+      opacity: 1;
+      max-height: 30rem;
+      padding-top: var(--default-padding);
+    }
+  }
+  &__question {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  &__answer {
+    font-size: 1.4rem;
+    font-weight: 400;
+    opacity: 0;
+    transition: var(--transition-timing);
+    max-height: 0.1rem;
+    overflow: hidden;
+  }
+}
